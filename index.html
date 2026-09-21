@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Hábitos para Alcanzar Nuestras Metas | Bitácora de Aprendizaje</title>
+    
+    <!-- Meta Description & SEO -->
+    <meta name="description" content="Análisis de los 10 hábitos clave de 5 mentes extraordinarias: Bill Gates, Serena Williams, Jennifer Doudna, Stephen King y Warren Buffett.">
+    <meta name="author" content="Pablo Velazquez">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        /* Animaciones suaves */
+        .card-hover {
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Gradient Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(148, 163, 184, 0.4);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(148, 163, 184, 0.6);
+        }
+
+        /* Ajustes de impresión */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .print-shadow-none {
+                box-shadow: none !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased">
+
+    <!-- Barra de Progreso de Lectura -->
+    <div id="scrollProgress" class="no-print fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 z-50 transition-all duration-150" style="width: 0%;"></div>
+
+    <!-- Navegación Superior -->
+    <header class="no-print sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            
+            <!-- Branding / Logo -->
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white font-bold shadow-md shadow-blue-500/20">
+                    <i class="fa-solid fa-sparkles text-sm"></i>
+                </div>
+                <div>
+                    <span class="font-display font-bold text-base text-slate-900 dark:text-white leading-none block">
+                        Crecimiento & Metas
+                    </span>
+                    <span class="text-xs text-slate-500 dark:text-slate-400 leading-none">
+                        Bitácora de Aprendizaje
+                    </span>
+                </div>
+            </div>
+
+            <!-- Botones de Acción de la Cabecera -->
+            <div class="flex items-center space-x-2 sm:space-x-3">
+                <!-- Botón Me Gusta / Inspirado -->
+                <button id="likeBtn" onclick="toggleLike()" class="inline-flex items-center space-x-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-red-50 dark:hover:bg-red-950/30 hover:text-red-500 dark:hover:text-red-400 transition-all">
+                    <i id="likeIcon" class="fa-regular fa-heart text-sm"></i>
+                    <span id="likeCount">42</span>
+                </button>
+
+                <!-- Botón Marcador / Bookmark -->
+                <button id="bookmarkBtn" onclick="toggleBookmark()" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Guardar marcador">
+                    <i id="bookmarkIcon" class="fa-regular fa-bookmark text-base"></i>
+                </button>
+
+                <!-- Conmutador Tema Claro/Oscuro -->
+                <button id="themeToggleBtn" onclick="toggleTheme()" class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" title="Cambiar Tema">
+                    <i id="themeIcon" class="fa-solid fa-sun text-base text-amber-400"></i>
+                </button>
+
+                <!-- Imprimir / Exportar PDF -->
+                <button onclick="window.print()" class="hidden sm:inline-flex items-center space-x-2 px-3 py-1.5 text-xs font-medium rounded-lg text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+                    <i class="fa-solid fa-print"></i>
+                    <span>Imprimir / PDF</span>
+                </button>
+
+                <!-- Compartir Artículo -->
+                <button onclick="shareArticle()" class="inline-flex items-center space-x-2 px-4 py-1.5 text-xs font-semibold rounded-lg text-white bg-blue-600 hover:bg-blue-700 shadow-sm hover:shadow-md transition-all">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    <span>Compartir</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Encabezado Principal del Blog -->
+    <section class="bg-gradient-to-b from-blue-50 via-slate-50 to-slate-50 dark:from-slate-800/40 dark:via-slate-900 dark:to-slate-900 py-12 sm:py-16 border-b border-slate-200/60 dark:border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            
+            <!-- Etiqueta de Categoría -->
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs font-semibold tracking-wide uppercase mb-4 shadow-sm border border-blue-200/50 dark:border-blue-800/50">
+                <i class="fa-solid fa-lightbulb text-blue-500"></i>
+                <span>Desarrollo Personal & Alto Rendimiento</span>
+            </div>
+
+            <!-- Título Principal -->
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-6">
+                10 Hábitos para Alcanzar Nuestras Metas: <br class="hidden sm:inline">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400">
+                    Lecciones de 5 Mentes Extraordinarias
+                </span>
+            </h1>
+
+            <!-- Metadatos de la Publicación -->
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+                
+                <!-- Autor Editable -->
+                <div class="flex items-center space-x-2 bg-white dark:bg-slate-800 px-3.5 py-1.5 rounded-full shadow-sm border border-slate-200 dark:border-slate-700">
+                    <i class="fa-solid fa-user-pen text-blue-500"></i>
+                    <span class="font-medium text-slate-500 dark:text-slate-400">Por:</span>
+                    <span id="authorName" contenteditable="true" class="font-semibold text-slate-900 dark:text-white outline-none border-b border-dashed border-blue-400 focus:border-solid focus:bg-blue-50 dark:focus:bg-slate-700 px-1 rounded transition-all" title="Haz clic para editar tu nombre">
+                        Pablo Velazquez
+                    </span>
+                    <i class="fa-solid fa-pencil text-xs text-slate-400 cursor-pointer" onclick="document.getElementById('authorName').focus()" title="Editar nombre"></i>
+                </div>
+
+                <!-- Fecha de Publicación -->
+                <div class="flex items-center space-x-2 bg-white dark:bg-slate-800 px-3.5 py-1.5 rounded-full shadow-sm border border-slate-200 dark:border-slate-700">
+                    <i class="fa-regular fa-calendar-check text-blue-500"></i>
+                    <span>21 de Septiembre, 2026</span>
+                </div>
+
+                <!-- Tiempo Estimado de Lectura -->
+                <div class="flex items-center space-x-2 bg-white dark:bg-slate-800 px-3.5 py-1.5 rounded-full shadow-sm border border-slate-200 dark:border-slate-700">
+                    <i class="fa-regular fa-clock text-blue-500"></i>
+                    <span>Lectura: 4 min</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido Principal -->
+    <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
+
+        <!-- Sección de Introducción -->
+        <article class="prose dark:prose-invert max-w-none bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-4">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                <i class="fa-solid fa-compass text-blue-500"></i>
+                Introducción
+            </h2>
+            <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-base sm:text-lg">
+                El éxito sostenido rara vez es producto del azar o de talentos aislados; casi siempre es la consecuencia directa de 
+                <strong class="text-slate-900 dark:text-white font-semibold">hábitos y disciplinas ejecutadas con consistencia día con día</strong>. 
+                Para profundizar en cómo las figuras más sobresalientes de diversas áreas estructuran su rutina, realicé un análisis detallado de 
+                <strong class="text-blue-600 dark:text-blue-400">5 líderes en tecnología, deportes, ciencia, literatura y negocios</strong>. 
+                A continuación, presento los 10 hábitos clave identificados, organizados en una infografía interactiva para facilitar su análisis y adopción.
+            </p>
+
+            <div class="p-4 sm:p-5 rounded-xl bg-blue-50/70 dark:bg-slate-900/60 border-l-4 border-blue-500 text-slate-700 dark:text-slate-300 text-sm flex items-start space-x-3">
+                <i class="fa-solid fa-quote-left text-blue-500 text-xl shrink-0 mt-0.5"></i>
+                <div>
+                    <p class="italic">"Somos lo que hacemos repetidamente. La excelencia, entonces, no es un acto, sino un hábito."</p>
+                    <span class="block mt-1 font-semibold text-xs text-blue-600 dark:text-blue-400">— Aristóteles</span>
+                </div>
+            </div>
+        </article>
+
+        <!-- Sección Infografía Digital Interactiva -->
+        <section class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div>
+                    <span class="text-xs font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase">Recurso Visual e Interactivo</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Infografía Digital de Hábitos</h2>
+                </div>
+
+                <!-- Buscador de Hábitos -->
+                <div class="relative w-full sm:w-64">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input type="text" id="searchInput" oninput="searchCards()" placeholder="Buscar hábito o líder..." class="w-full pl-9 pr-3 py-1.5 text-xs rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                </div>
+            </div>
+
+            <!-- Filtros de Categoría -->
+            <div class="flex flex-wrap gap-1.5 bg-slate-200/70 dark:bg-slate-800 p-1 rounded-xl text-xs font-medium">
+                <button onclick="filterCards('all')" class="filter-btn active px-3.5 py-1.5 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm transition-all font-semibold" data-category="all">
+                    Todos (5)
+                </button>
+                <button onclick="filterCards('tech')" class="filter-btn px-3.5 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all" data-category="tech">
+                    <i class="fa-solid fa-laptop-code mr-1 text-cyan-500"></i> Tecnología
+                </button>
+                <button onclick="filterCards('sports')" class="filter-btn px-3.5 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all" data-category="sports">
+                    <i class="fa-solid fa-trophy mr-1 text-emerald-500"></i> Deportes
+                </button>
+                <button onclick="filterCards('science')" class="filter-btn px-3.5 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all" data-category="science">
+                    <i class="fa-solid fa-microscope mr-1 text-purple-500"></i> Ciencia
+                </button>
+                <button onclick="filterCards('art')" class="filter-btn px-3.5 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all" data-category="art">
+                    <i class="fa-solid fa-feather-pointed mr-1 text-amber-500"></i> Arte & Literatura
+                </button>
+                <button onclick="filterCards('business')" class="filter-btn px-3.5 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all" data-category="business">
+                    <i class="fa-solid fa-chart-line mr-1 text-blue-500"></i> Negocios
+                </button>
+            </div>
+
+            <!-- Grid de Tarjetas de Personajes y Hábitos -->
+            <div id="cardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Personaje 1: Bill Gates -->
+                <div class="person-card card-hover bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 overflow-hidden flex flex-col justify-between shadow-sm" data-category="tech">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-cyan-100 text-cyan-800 dark:bg-cyan-950 dark:text-cyan-300">
+                                <i class="fa-solid fa-laptop-code mr-1"></i> Tecnología
+                            </span>
+                            <span class="text-xs font-semibold text-slate-400">2 Hábitos</span>
+                        </div>
+                        
+                        <div class="flex items-center space-x-3.5">
+                            <img src="images/bill_gates.jpg" alt="Bill Gates" class="w-14 h-14 rounded-full object-cover ring-2 ring-cyan-500/30 shadow-sm">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Bill Gates</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Cofundador de Microsoft</p>
+                            </div>
+                        </div>
+
+                        <!-- Lista de Hábitos con Checkbox Interactivo -->
+                        <div class="space-y-3 pt-2">
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-1.5">
+                                <div class="flex items-start justify-between space-x-2">
+                                    <div class="flex items-start space-x-2.5">
+                                        <i class="fa-solid fa-book-open text-cyan-500 mt-0.5"></i>
+                                        <div>
+                                            <h4 class="text-xs font-bold text-slate-900 dark:text-slate-200">1. Lectura diaria estructurada</h4>
+                                            <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Dedica al menos 1 hora cada noche a leer sobre diversos temas académicos e industriales.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <label class="flex items-center space-x-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400 cursor-pointer">
+                                    <input type="checkbox" class="habit-check rounded text-cyan-600 focus:ring-cyan-500" data-habit="1" onchange="toggleHabitSelection(1)">
+                                    <span>Guardar en mi lista de práctica</span>
+                                </label>
+                            </div>
+
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-1.5">
+                                <div class="flex items-start space-x-2.5">
+                                    <i class="fa-solid fa-brain text-cyan-500 mt-0.5"></i>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-900 dark:text-slate-200">2. "Think Weeks" (Semanas de reflexión)</h4>
+                                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Se aisla totalmente 2 veces al año para leer investigaciones y planificar estrategias a largo plazo.</p>
+                                    </div>
+                                </div>
+                                <label class="flex items-center space-x-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400 cursor-pointer">
+                                    <input type="checkbox" class="habit-check rounded text-cyan-600 focus:ring-cyan-500" data-habit="2" onchange="toggleHabitSelection(2)">
+                                    <span>Guardar en mi lista de práctica</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personaje 2: Serena Williams -->
+                <div class="person-card card-hover bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 overflow-hidden flex flex-col justify-between shadow-sm" data-category="sports">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300">
+                                <i class="fa-solid fa-trophy mr-1"></i> Deportes
+                            </span>
+                            <span class="text-xs font-semibold text-slate-400">2 Hábitos</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5">
+                            <img src="images/serena_williams.jpg" alt="Serena Williams" class="w-14 h-14 rounded-full object-cover ring-2 ring-emerald-500/30 shadow-sm">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Serena Williams</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Leyenda del Tenis Mundial</p>
+                            </div>
+                        </div>
+
+                        <!-- Lista de Hábitos -->
+                        <div class="space-y-3 pt-2">
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-1.5">
+                                <div class="flex items-start space-x-2.5">
+                                    <i class="fa-solid fa-eye text-emerald-500 mt-0.5"></i>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-900 dark:text-slate-200">3. Visualización mental pre-competitiva</h4>
+                                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Practica diariamente la imaginería guiada para superar situaciones críticas bajo alta presión.</p>
+                                    </div>
+                                </div>
+                                <label class="flex items-center space-x-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400 cursor-pointer">
+                                    <input type="checkbox" class="habit-check rounded text-emerald-600 focus:ring-emerald-500" data-habit="3" onchange="toggleHabitSelection(3)">
+                                    <span>Guardar en mi lista de práctica</span>
+                                </label>
+                            </div>
+
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-1.5">
+                                <div class="flex items-start space-x-2.5">
+                                    <i class="fa-solid fa-bed text-emerald-500 mt-0.5"></i>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-900 dark:text-slate-200">4. Descanso e higiene del sueño estricta</h4>
+                                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Mantiene un esquema innegociable de 7-8 horas de sueño continuo y terapia de recuperación física.</p>
+                                    </div>
+                                </div>
+                                <label class="flex items-center space-x-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400 cursor-pointer">
+                                    <input type="checkbox" class="habit-check rounded text-emerald-600 focus:ring-emerald-500" data-habit="4" onchange="toggleHabitSelection(4)">
+                                    <span>Guardar en mi lista de práctica</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personaje 3: Jennifer Doudna -->
+                <div class="person-card card-hover bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 overflow-hidden flex flex-col justify-between shadow-sm" data-category="science">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-purple-100 text-purple-800 dark:bg-purple-950 dark:text-purple-300">
+                                <i class="fa-solid fa-microscope mr-1"></i> Ciencia
+                            </span>
+                            <span class="text-xs font-semibold text-slate-400">2 Hábitos</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5">
+                            <img src="images/jennifer_doudna.jpg" alt="Jennifer Doudna" class="w-14 h-14 rounded-full object-cover ring-2 ring-purple-500/30 shadow-sm">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Jennifer Doudna</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Premio Nobel de Química (CRISPR)</p>
+                            </div>
+                        </div>
+
+                        <!-- Lista de Hábitos -->
+                        <div class="space-y-3 pt-2">
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-1.5">
+                                <div class="flex items-start space-x-2.5">
+                                    <i class="fa-solid fa-person-walking text-purple-500 mt-0.5"></i>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-900 dark:text-slate-200">5. Caminatas activas en la naturaleza</h4>
+                                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Utiliza los paseos al aire libre como método para desbloquear problemas moleculares complejos.</p>
+                                    </div>
+                                </div>
+                                <label class="flex items-center space-x-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400 cursor-pointer">
+                                    <input type="checkbox" class="habit-check rounded text-purple-600 focus:ring-purple-500" data-habit="5" onchange="toggleHabitSelection(5)">
+                                    <span>Guardar en mi lista de práctica</span>
+                                </label>
+                            </div>
+
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-1.5">
+                                <div class="flex items-start space-x-2.5">
+                                    <i class="fa-solid fa-book-bookmark text-purple-500 mt-0.5"></i>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-900 dark:text-slate-200">6. Bitácora diaria de hipótesis y dudas</h4>
+                                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Registra por escrito interrogantes sin resolver antes de saltar a conclusiones o soluciones apresuradas.</p>
+                                    </div>
+                                </div>
+                                <label class="flex items-center space-x-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400 cursor-pointer">
+                                    <input type="checkbox" class="habit-check rounded text-purple-600 focus:ring-purple-500" data-habit="6" onchange="toggleHabitSelection(6)">
+                                    <span>Guardar en mi lista de práctica</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personaje 4: Stephen King -->
+                <div class="person-card card-hover bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 overflow-hidden flex flex-col justify-between shadow-sm" data-category="art">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300">
+                                <i class="fa-solid fa-feather-pointed mr-1"></i> Arte & Literatura
+                            </span>
+                            <span class="text-xs font-semibold text-slate-400">2 Hábitos</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5">
+                            <img src="images/stephen_king.jpg" alt="Stephen King" class="w-14 h-14 rounded-full object-cover ring-2 ring-amber-500/30 shadow-sm">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Stephen King</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Escritor Bestseller Internacional</p>
+                            </div>
+                        </div>
+
+                        <!-- Lista de Hábitos -->
+                        <div class="space-y-3 pt-2">
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-1.5">
+                                <div class="flex items-start space-x-2.5">
+                                    <i class="fa-solid fa-pen-nib text-amber-500 mt-0.5"></i>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-900 dark:text-slate-200">7. Cuota diaria de producción (2,000 palabras)</h4>
+                                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Mantiene una meta innegociable de redacción matutina todos los días, independientemente del ánimo.</p>
+                                    </div>
+                                </div>
+                                <label class="flex items-center space-x-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400 cursor-pointer">
+                                    <input type="checkbox" class="habit-check rounded text-amber-600 focus:ring-amber-500" data-habit="7" onchange="toggleHabitSelection(7)">
+                                    <span>Guardar en mi lista de práctica</span>
+                                </label>
+                            </div>
+
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-1.5">
+                                <div class="flex items-start space-x-2.5">
+                                    <i class="fa-solid fa-ban text-amber-500 mt-0.5"></i>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-900 dark:text-slate-200">8. Desconexión digital durante la creación</h4>
+                                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Escribe en una habitación sin teléfono, ni redes sociales, garantizando enfoque total profundo.</p>
+                                    </div>
+                                </div>
+                                <label class="flex items-center space-x-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400 cursor-pointer">
+                                    <input type="checkbox" class="habit-check rounded text-amber-600 focus:ring-amber-500" data-habit="8" onchange="toggleHabitSelection(8)">
+                                    <span>Guardar en mi lista de práctica</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Personaje 5: Warren Buffett -->
+                <div class="person-card card-hover bg-white dark:bg-slate-800 rounded-2xl border border-slate-200/80 dark:border-slate-700 overflow-hidden flex flex-col justify-between shadow-sm" data-category="business">
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="px-2.5 py-1 rounded-md text-xs font-bold bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300">
+                                <i class="fa-solid fa-chart-line mr-1"></i> Negocios
+                            </span>
+                            <span class="text-xs font-semibold text-slate-400">2 Hábitos</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3.5">
+                            <img src="images/warren_buffett.jpg" alt="Warren Buffett" class="w-14 h-14 rounded-full object-cover ring-2 ring-blue-500/30 shadow-sm">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-900 dark:text-white">Warren Buffett</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Inversionista y CEO de Berkshire Hathaway</p>
+                            </div>
+                        </div>
+
+                        <!-- Lista de Hábitos -->
+                        <div class="space-y-3 pt-2">
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-1.5">
+                                <div class="flex items-start space-x-2.5">
+                                    <i class="fa-solid fa-clock-rotate-left text-blue-500 mt-0.5"></i>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-900 dark:text-slate-200">9. Regla del 80% del tiempo de lectura</h4>
+                                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Invierte la mayor parte de su jornada laboral leyendo informes financieros antes de actuar.</p>
+                                    </div>
+                                </div>
+                                <label class="flex items-center space-x-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400 cursor-pointer">
+                                    <input type="checkbox" class="habit-check rounded text-blue-600 focus:ring-blue-500" data-habit="9" onchange="toggleHabitSelection(9)">
+                                    <span>Guardar en mi lista de práctica</span>
+                                </label>
+                            </div>
+
+                            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 space-y-1.5">
+                                <div class="flex items-start space-x-2.5">
+                                    <i class="fa-solid fa-shield-halved text-blue-500 mt-0.5"></i>
+                                    <div>
+                                        <h4 class="text-xs font-bold text-slate-900 dark:text-slate-200">10. El poder de decir "NO" proactivo</h4>
+                                        <p class="text-xs text-slate-600 dark:text-slate-400 mt-0.5">Protege rigurosamente su tiempo rechazando la gran mayoría de invitaciones o negocios no esenciales.</p>
+                                    </div>
+                                </div>
+                                <label class="flex items-center space-x-2 pt-1 text-[11px] text-slate-500 dark:text-slate-400 cursor-pointer">
+                                    <input type="checkbox" class="habit-check rounded text-blue-600 focus:ring-blue-500" data-habit="10" onchange="toggleHabitSelection(10)">
+                                    <span>Guardar en mi lista de práctica</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Herramienta Interactiva: Planificador de Hábitos Personal -->
+        <section class="no-print bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-6">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/80 pb-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center font-bold text-lg">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white">Planificador Interactivo de Hábitos</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Calcula tu compromiso de tiempo y proyección a 30 días</p>
+                    </div>
+                </div>
+                <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300">
+                    Interactiva
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Selección de Hábito -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Elige un Hábito a Practicar:</label>
+                    <select id="habitSelector" onchange="calculateHabitPlan()" class="w-full p-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="1">1. Lectura estructurada (Bill Gates)</option>
+                        <option value="2">2. Semanas de reflexión (Bill Gates)</option>
+                        <option value="3">3. Visualización mental (Serena Williams)</option>
+                        <option value="4">4. Descanso e higiene del sueño (Serena Williams)</option>
+                        <option value="5">5. Caminatas en la naturaleza (Jennifer Doudna)</option>
+                        <option value="6">6. Bitácora de hipótesis (Jennifer Doudna)</option>
+                        <option value="7" selected>7. Cuota diaria de producción (Stephen King)</option>
+                        <option value="8">8. Desconexión digital (Stephen King)</option>
+                        <option value="9">9. Regla del 80% de lectura (Warren Buffett)</option>
+                        <option value="10">10. Decir "NO" proactivo (Warren Buffett)</option>
+                    </select>
+                </div>
+
+                <!-- Duración Diaria Objetivo -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-semibold text-slate-700 dark:text-slate-300">Minutos diarios dedicados:</label>
+                    <input type="number" id="minutesInput" value="60" min="15" max="240" step="15" oninput="calculateHabitPlan()" class="w-full p-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                </div>
+
+                <!-- Resultado de Proyección -->
+                <div class="p-4 rounded-xl bg-blue-50/60 dark:bg-slate-900/60 border border-blue-100 dark:border-slate-700 flex flex-col justify-between">
+                    <div>
+                        <span class="text-[11px] font-semibold text-slate-500 dark:text-slate-400 block uppercase">Inversión mensual estimada</span>
+                        <span id="monthlyHours" class="text-2xl font-extrabold text-blue-600 dark:text-blue-400 block mt-0.5">30 Horas</span>
+                    </div>
+                    <p id="planSummary" class="text-xs text-slate-600 dark:text-slate-400 mt-2">
+                        Equivale a terminar aproximadamente 2 libros o proyectos complejos al mes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reflexión Personal Destacada -->
+        <section class="bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-900 text-white p-8 sm:p-10 rounded-3xl shadow-xl relative overflow-hidden">
+            <!-- Elemento Decorativo Fondo -->
+            <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 space-y-4">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold backdrop-blur-sm border border-blue-400/20">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <span>Reflexión Personal</span>
+                </div>
+
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+                    ¿Qué hábito investigado he decidido incorporar a mi vida y por qué?
+                </h3>
+
+                <p class="text-slate-200 text-base sm:text-lg leading-relaxed">
+                    Tras analizar las distintas filosofías de trabajo, he determinado adoptar formalmente la <strong class="text-blue-300 font-semibold">cuota diaria de producción con desconexión digital total</strong>, inspirada en la disciplina del escritor <strong class="text-amber-300">Stephen King</strong>.
+                </p>
+
+                <div class="p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 text-sm leading-relaxed text-slate-200 space-y-3">
+                    <p>
+                        En la era actual, las constantes notificaciones del smartphone y la multitarea fraccionan nuestra atención, impidiendo alcanzar el estado de <em>trabajo profundo (deep work)</em>. A menudo pospongo tareas complejas por no delimitar un bloque de tiempo protegido.
+                    </p>
+                    <p>
+                        <strong class="text-white font-semibold">Plan de ejecución:</strong> Estableceré un bloque fijo de 60 a 90 minutos diarios dedicados exclusivamente al avance continuo, apagando el teléfono celular y manteniendo una sola pestaña activa en el ordenador. Esta meta medible sustituirá la intención vaga por un compromiso diario sostenido.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Referencias Bibliográficas APA -->
+        <section class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3">
+                <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fa-solid fa-graduation-cap text-blue-500"></i>
+                    Fuentes Consultadas (Formato APA 7.ª ed.)
+                </h3>
+                <button onclick="copyAllCitations()" class="no-print text-xs px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-blue-900/50 hover:text-blue-600 dark:hover:text-blue-300 transition-colors font-medium">
+                    <i class="fa-regular fa-copy mr-1"></i> Copiar Todas
+                </button>
+            </div>
+
+            <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                <li class="flex items-start justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
+                    <span class="mr-2" id="apa-1">Gates, B. (2021). <em>How to Avoid a Climate Disaster: The Solutions We Have and the Breakthroughs We Need</em>. Knopf.</span>
+                    <button onclick="copyCitation('apa-1')" class="no-print shrink-0 text-xs px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-blue-900/50 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" title="Copiar cita">
+                        <i class="fa-regular fa-copy mr-1"></i> Copiar
+                    </button>
+                </li>
+                <li class="flex items-start justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
+                    <span class="mr-2" id="apa-2">Isaacson, W. (2021). <em>The Code Breaker: Jennifer Doudna, Gene Editing, and the Future of the Human Race</em>. Simon & Schuster.</span>
+                    <button onclick="copyCitation('apa-2')" class="no-print shrink-0 text-xs px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-blue-900/50 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" title="Copiar cita">
+                        <i class="fa-regular fa-copy mr-1"></i> Copiar
+                    </button>
+                </li>
+                <li class="flex items-start justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
+                    <span class="mr-2" id="apa-3">King, S. (2000). <em>On Writing: A Memoir of the Craft</em>. Scribner.</span>
+                    <button onclick="copyCitation('apa-3')" class="no-print shrink-0 text-xs px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-blue-900/50 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" title="Copiar cita">
+                        <i class="fa-regular fa-copy mr-1"></i> Copiar
+                    </button>
+                </li>
+                <li class="flex items-start justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
+                    <span class="mr-2" id="apa-4">Schroeder, A. (2008). <em>The Snowball: Warren Buffett and the Business of Life</em>. Bantam Books.</span>
+                    <button onclick="copyCitation('apa-4')" class="no-print shrink-0 text-xs px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-blue-900/50 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" title="Copiar cita">
+                        <i class="fa-regular fa-copy mr-1"></i> Copiar
+                    </button>
+                </li>
+                <li class="flex items-start justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
+                    <span class="mr-2" id="apa-5">Williams, S. (2009). <em>On the Line</em>. Grand Central Publishing.</span>
+                    <button onclick="copyCitation('apa-5')" class="no-print shrink-0 text-xs px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-blue-900/50 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" title="Copiar cita">
+                        <i class="fa-regular fa-copy mr-1"></i> Copiar
+                    </button>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="mt-auto border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 text-center text-xs text-slate-500 dark:text-slate-400">
+        <div class="max-w-5xl mx-auto px-4 space-y-2">
+            <p>© 2026 Crecimiento & Metas — Bitácora de Aprendizaje y Desarrollo Personal.</p>
+            <p class="text-slate-400 dark:text-slate-500">Diseñado con un enfoque responsivo para la lectura en línea y alta productividad.</p>
+        </div>
+    </footer>
+
+    <!-- Notificación Toast Flotante -->
+    <div id="toastNotification" class="no-print fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 ease-out bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-4 py-3 rounded-xl shadow-2xl flex items-center space-x-3 pointer-events-none">
+        <div id="toastIcon" class="w-7 h-7 rounded-full bg-emerald-500 text-white flex items-center justify-center text-xs shrink-0">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <h4 id="toastTitle" class="font-bold text-xs">Notificación</h4>
+            <p id="toastMessage" class="text-xs text-slate-300 dark:text-slate-600">Acción completada exitosamente.</p>
+        </div>
+    </div>
+
+    <!-- Lógica de Interacción en JS -->
+    <script>
+        // Barra de Progreso de Lectura
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('scrollProgress').style.width = scrolled + '%';
+        });
+
+        // Control de Tema Claro / Oscuro
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                icon.className = 'fa-solid fa-moon text-base text-slate-600';
+                localStorage.setItem('theme', 'light');
+                showToast('Tema Claro Activado', 'Modo lectura de día activado.');
+            } else {
+                html.classList.add('dark');
+                icon.className = 'fa-solid fa-sun text-base text-amber-400';
+                localStorage.setItem('theme', 'dark');
+                showToast('Tema Oscuro Activado', 'Modo lectura nocturno activado.');
+            }
+        }
+
+        // Cargar tema guardado
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            document.getElementById('themeIcon').className = 'fa-solid fa-sun text-base text-amber-400';
+        } else {
+            document.documentElement.classList.remove('dark');
+            document.getElementById('themeIcon').className = 'fa-solid fa-moon text-base text-slate-600';
+        }
+
+        // Sistema de Filtrado de Tarjetas
+        let activeCategory = 'all';
+        function filterCards(category) {
+            activeCategory = category;
+            const cards = document.querySelectorAll('.person-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.className = 'filter-btn active px-3.5 py-1.5 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm transition-all font-semibold';
+                } else {
+                    btn.className = 'filter-btn px-3.5 py-1.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-all';
+                }
+            });
+
+            searchCards();
+        }
+
+        // Búsqueda en Vivo
+        function searchCards() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.person-card');
+
+            cards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const text = card.innerText.toLowerCase();
+                const matchesCategory = activeCategory === 'all' || category === activeCategory;
+                const matchesSearch = text.includes(query);
+
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Toast de Notificación
+        function showToast(title, message) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastTitle').textContent = title;
+            document.getElementById('toastMessage').textContent = message;
+
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+
+        // Compartir Artículo
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: document.title,
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                const tempInput = document.createElement('input');
+                tempInput.value = window.location.href;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+
+                showToast('¡Enlace Copiado!', 'El enlace del artículo fue copiado al portapapeles.');
+            }
+        }
+
+        // Copiar Citas APA
+        function copyCitation(elementId) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            copyToClipboard(textToCopy);
+            showToast('Cita Copiada', 'Formato APA listo para pegar.');
+        }
+
+        function copyAllCitations() {
+            const citations = Array.from(document.querySelectorAll('[id^="apa-"]'))
+                .map(el => el.innerText)
+                .join('\n\n');
+            copyToClipboard(citations);
+            showToast('Todas las Citas Copiadas', 'Las 5 fuentes en formato APA copiadas.');
+        }
+
+        function copyToClipboard(text) {
+            const tempInput = document.createElement('textarea');
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+        }
+
+        // Me Gusta / Contador Interactivo
+        let isLiked = false;
+        let likeCount = 42;
+        function toggleLike() {
+            const icon = document.getElementById('likeIcon');
+            const countEl = document.getElementById('likeCount');
+            if (!isLiked) {
+                isLiked = true;
+                likeCount++;
+                icon.className = 'fa-solid fa-heart text-sm text-red-500';
+                showToast('¡Gracias!', 'Has marcado este artículo como inspirador.');
+            } else {
+                isLiked = false;
+                likeCount--;
+                icon.className = 'fa-regular fa-heart text-sm';
+            }
+            countEl.textContent = likeCount;
+        }
+
+        // Guardar Marcador
+        let isBookmarked = false;
+        function toggleBookmark() {
+            const icon = document.getElementById('bookmarkIcon');
+            isBookmarked = !isBookmarked;
+            if (isBookmarked) {
+                icon.className = 'fa-solid fa-bookmark text-base text-blue-500';
+                showToast('Artículo Guardado', 'Se añadió a tus marcadores guardados.');
+            } else {
+                icon.className = 'fa-regular fa-bookmark text-base';
+                showToast('Marcador Removido', 'Se eliminó de tus marcadores.');
+            }
+        }
+
+        // Selección de Hábitos en LocalStorage
+        function toggleHabitSelection(habitId) {
+            let saved = JSON.parse(localStorage.getItem('my_selected_habits') || '[]');
+            if (saved.includes(habitId)) {
+                saved = saved.filter(id => id !== habitId);
+                showToast('Hábito Desmarcado', 'Removido de tu lista de práctica.');
+            } else {
+                saved.push(habitId);
+                showToast('Hábito Guardado', 'Añadido a tu lista personal de práctica.');
+            }
+            localStorage.setItem('my_selected_habits', JSON.stringify(saved));
+        }
+
+        // Restaurar Hábitos Marcados
+        document.addEventListener('DOMContentLoaded', () => {
+            const saved = JSON.parse(localStorage.getItem('my_selected_habits') || '[]');
+            document.querySelectorAll('.habit-check').forEach(check => {
+                const habitId = parseInt(check.getAttribute('data-habit'));
+                if (saved.includes(habitId)) {
+                    check.checked = true;
+                }
+            });
+            calculateHabitPlan();
+        });
+
+        // Planificador Interactivo de Hábitos
+        function calculateHabitPlan() {
+            const mins = parseInt(document.getElementById('minutesInput').value) || 0;
+            const monthlyMins = mins * 30;
+            const monthlyHours = Math.round((monthlyMins / 60) * 10) / 10;
+            
+            document.getElementById('monthlyHours').textContent = `${monthlyHours} Horas / mes`;
+            
+            let summaryText = `Con ${mins} min al día acumulas ${monthlyHours} horas de enfoque constante al mes.`;
+            if (mins >= 60) {
+                summaryText += ' ¡Excelente nivel de disciplina y trabajo profundo!';
+            } else if (mins >= 30) {
+                summaryText += ' Ritmo sostenible ideal para mantener la consistencia.';
+            } else {
+                summaryText += ' Buen punto de inicio para crear inercia.';
+            }
+            
+            document.getElementById('planSummary').textContent = summaryText;
+        }
+    </script>
+</body>
+</html>
