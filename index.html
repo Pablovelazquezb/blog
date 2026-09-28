@@ -206,8 +206,24 @@
     <!-- Contenido Principal -->
     <main class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-12">
 
+        <!-- Navegación de Actividades de la Bitácora -->
+        <nav class="no-print flex flex-wrap items-center justify-center gap-2 p-2.5 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm sticky top-16 z-30">
+            <a href="#actividad1" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-blue-600 text-white shadow-sm hover:bg-blue-700 flex items-center space-x-2">
+                <i class="fa-solid fa-list-check text-amber-300"></i>
+                <span>Actividad 1: 10 Hábitos de Éxito</span>
+            </a>
+            <a href="#actividad2" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-amber-500 text-white shadow-sm hover:bg-amber-600 flex items-center space-x-2">
+                <i class="fa-solid fa-brain text-amber-200"></i>
+                <span>Actividad 2: ¿Cómo pensó Forrest Gump?</span>
+            </a>
+            <a href="#referencias" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-blue-500 hover:text-white flex items-center space-x-2">
+                <i class="fa-solid fa-graduation-cap text-blue-500"></i>
+                <span>Fuentes APA</span>
+            </a>
+        </nav>
+
         <!-- Sección de Introducción -->
-        <article class="prose dark:prose-invert max-w-none bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-4">
+        <article id="actividad1" class="prose dark:prose-invert max-w-none bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-4 scroll-mt-24">
             <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
                 <i class="fa-solid fa-compass text-blue-500"></i>
                 Introducción
@@ -613,8 +629,295 @@
             </div>
         </section>
 
+        <!-- ========================================== -->
+        <!-- ACTIVIDAD 2: ANÁLISIS DE FORREST GUMP -->
+        <!-- ========================================== -->
+        <section id="actividad2" class="space-y-10 pt-6 scroll-mt-24 border-t border-slate-200/80 dark:border-slate-800">
+            
+            <!-- Banner de Encabezado de la Actividad 2 -->
+            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 text-white p-8 sm:p-10 shadow-xl">
+                <!-- Overlay decorativo -->
+                <div class="absolute -right-10 -top-10 w-72 h-72 bg-yellow-400/20 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <div class="relative z-10 space-y-4">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-amber-100 text-xs font-bold tracking-wide uppercase border border-white/20">
+                        <i class="fa-solid fa-brain text-amber-300"></i>
+                        <span>Actividad 2: Operaciones del Pensamiento & Toma de Decisiones</span>
+                    </div>
+
+                    <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                        ¿Cómo pensó Forrest Gump?
+                    </h2>
+
+                    <p class="text-amber-100 text-sm sm:text-base max-w-3xl leading-relaxed">
+                        Análisis cognitivo y razonamiento bajo presión extrema durante la icónica escena del cine: 
+                        <strong class="text-white">“Run, Forrest, run!”</strong>
+                    </p>
+
+                    <!-- Ficha Técnica Rápida -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-2 text-xs">
+                        <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/15 flex items-center space-x-3">
+                            <i class="fa-solid fa-clapperboard text-amber-300 text-lg"></i>
+                            <div>
+                                <span class="text-amber-200 block text-[10px] uppercase font-semibold">Película</span>
+                                <span class="font-bold text-white">Forrest Gump (1994)</span>
+                            </div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/15 flex items-center space-x-3">
+                            <i class="fa-solid fa-user-ninja text-amber-300 text-lg"></i>
+                            <div>
+                                <span class="text-amber-200 block text-[10px] uppercase font-semibold">Personaje</span>
+                                <span class="font-bold text-white">Forrest Gump (Niño)</span>
+                            </div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/15 flex items-center space-x-3">
+                            <i class="fa-solid fa-quote-left text-amber-300 text-lg"></i>
+                            <div>
+                                <span class="text-amber-200 block text-[10px] uppercase font-semibold">Escena Clave</span>
+                                <span class="font-bold text-white">"Run, Forrest, run!"</span>
+                            </div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md p-3 rounded-xl border border-white/15 flex items-center space-x-3">
+                            <i class="fa-solid fa-triangle-exclamation text-amber-300 text-lg"></i>
+                            <div>
+                                <span class="text-amber-200 block text-[10px] uppercase font-semibold">Problema</span>
+                                <span class="font-bold text-white">Autoprotección Rápida</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card de la Escena y Video de YouTube -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                
+                <!-- Imagen Generada de Alta Calidad -->
+                <div class="lg:col-span-6 bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-700/80 shadow-sm flex flex-col justify-between">
+                    <div class="relative overflow-hidden group">
+                        <img src="images/forrest_gump.jpg" alt="Escena de Forrest Gump corriendo" class="w-full h-64 sm:h-72 object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-4 sm:p-6">
+                            <span class="text-white text-xs font-semibold bg-amber-600/90 backdrop-blur-md px-3 py-1 rounded-full border border-amber-400/30">
+                                <i class="fa-solid fa-film mr-1"></i> Forrest Gump: He sure is fast!
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-shield-cat text-amber-500"></i>
+                            Situación Inicial
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            Forrest es un niño que ha tenido dificultades físicas y suele ser tratado como diferente por los demás. En esta escena, unos niños lo persiguen en bicicleta para molestarlo y lastimarlo. Jenny identifica que Forrest está en peligro y le recomienda correr. Forrest debe reaccionar sin tener tiempo para planear demasiado.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Reproductor y Enlaces de YouTube -->
+                <div class="lg:col-span-6 bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <i class="fa-brands fa-youtube text-red-600 text-xl"></i>
+                                <h3 class="text-base font-bold text-slate-900 dark:text-white">Clip de Referencia en YouTube</h3>
+                            </div>
+                            <span class="text-xs px-2.5 py-1 rounded-md font-semibold bg-red-100 text-red-700 dark:bg-red-950 dark:text-red-300">
+                                Video HD
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">
+                            Muestra a Jenny diciéndole que escape de otros niños y cómo esa acción revela que Forrest puede correr muy rápido.
+                        </p>
+                    </div>
+
+                    <!-- Embed Responsive de YouTube -->
+                    <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-inner border border-slate-200 dark:border-slate-700 bg-slate-900">
+                        <iframe class="w-full h-full" src="https://www.youtube-nocookie.com/embed/Xl3gCFyx8F4" title="Forrest Gump: He sure is fast! (HD CLIP)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100 dark:border-slate-700">
+                        <span class="text-xs text-slate-500 dark:text-slate-400 font-medium">Enlaces directos al clip:</span>
+                        <div class="flex space-x-2">
+                            <a href="https://www.youtube.com/watch?v=Xl3gCFyx8F4" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-50 text-red-600 dark:bg-red-950/40 dark:text-red-400 hover:bg-red-100 transition-colors">
+                                <i class="fa-brands fa-youtube"></i>
+                                <span>YouTube Clip 1</span>
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=8d6b69PmyV4" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200 hover:bg-slate-200 transition-colors">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                <span>YouTube Clip 2</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operaciones del Pensamiento (Tabla Interactivas / Grid) -->
+            <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm space-y-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-700 pb-4">
+                    <div>
+                        <span class="text-xs font-extrabold tracking-wider text-amber-600 dark:text-amber-400 uppercase">Matriz de Análisis Cognitivo</span>
+                        <h3 class="text-2xl font-extrabold text-slate-900 dark:text-white">Operaciones del Pensamiento</h3>
+                    </div>
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 self-start sm:self-center">
+                        7 Operaciones de Análisis
+                    </span>
+                </div>
+
+                <!-- Tabla Responsive con Estilos Modernos -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-slate-200 dark:border-slate-700 text-xs uppercase font-extrabold text-slate-400 tracking-wider">
+                                <th class="py-3 px-4 w-44">Operación</th>
+                                <th class="py-3 px-4">¿Cómo la realiza Forrest?</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60 text-sm">
+                            
+                            <!-- 1. Observar -->
+                            <tr class="hover:bg-amber-50/40 dark:hover:bg-slate-700/30 transition-colors">
+                                <td class="py-4 px-4 font-bold text-slate-900 dark:text-white flex items-center space-x-2.5">
+                                    <div class="w-8 h-8 rounded-lg bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-eye text-xs"></i>
+                                    </div>
+                                    <span>Observar</span>
+                                </td>
+                                <td class="py-4 px-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Forrest nota que los niños se acercan rápidamente en bicicletas, lo persiguen y tienen una actitud agresiva. También escucha la advertencia urgente de Jenny.
+                                </td>
+                            </tr>
+
+                            <!-- 2. Interpretar -->
+                            <tr class="hover:bg-amber-50/40 dark:hover:bg-slate-700/30 transition-colors">
+                                <td class="py-4 px-4 font-bold text-slate-900 dark:text-white flex items-center space-x-2.5">
+                                    <div class="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-puzzle-piece text-xs"></i>
+                                    </div>
+                                    <span>Interpretar</span>
+                                </td>
+                                <td class="py-4 px-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Interpreta que no se trata de un juego amistoso: los niños quieren intimidarlo o hacerle daño. La situación representa una amenaza real.
+                                </td>
+                            </tr>
+
+                            <!-- 3. Relacionar -->
+                            <tr class="hover:bg-amber-50/40 dark:hover:bg-slate-700/30 transition-colors">
+                                <td class="py-4 px-4 font-bold text-slate-900 dark:text-white flex items-center space-x-2.5">
+                                    <div class="w-8 h-8 rounded-lg bg-purple-100 dark:bg-purple-950 text-purple-600 dark:text-purple-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-link text-xs"></i>
+                                    </div>
+                                    <span>Relacionar</span>
+                                </td>
+                                <td class="py-4 px-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Relaciona el peligro actual con su condición física y con experiencias anteriores en las que otros niños se han burlado de él por usar aparatos en las piernas.
+                                </td>
+                            </tr>
+
+                            <!-- 4. Inferir -->
+                            <tr class="hover:bg-amber-50/40 dark:hover:bg-slate-700/30 transition-colors">
+                                <td class="py-4 px-4 font-bold text-slate-900 dark:text-white flex items-center space-x-2.5">
+                                    <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-lightbulb text-xs"></i>
+                                    </div>
+                                    <span>Inferir</span>
+                                </td>
+                                <td class="py-4 px-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Puede inferir que quedarse quieto o enfrentarse directamente a varios niños sería riesgoso. La opción más segura es alejarse de ellos.
+                                </td>
+                            </tr>
+
+                            <!-- 5. Evaluar -->
+                            <tr class="hover:bg-amber-50/40 dark:hover:bg-slate-700/30 transition-colors">
+                                <td class="py-4 px-4 font-bold text-slate-900 dark:text-white flex items-center space-x-2.5">
+                                    <div class="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-scale-balanced text-xs"></i>
+                                    </div>
+                                    <span>Evaluar</span>
+                                </td>
+                                <td class="py-4 px-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Aunque ocurre en pocos segundos, Forrest evalúa dos posibilidades: quedarse y exponerse a ser golpeado, o seguir el consejo de Jenny y huir. Correr implica esfuerzo, pero reduce el peligro inmediato.
+                                </td>
+                            </tr>
+
+                            <!-- 6. Decidir -->
+                            <tr class="hover:bg-amber-50/40 dark:hover:bg-slate-700/30 transition-colors">
+                                <td class="py-4 px-4 font-bold text-slate-900 dark:text-white flex items-center space-x-2.5">
+                                    <div class="w-8 h-8 rounded-lg bg-red-100 dark:bg-red-950 text-red-600 dark:text-red-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-bullseye text-xs"></i>
+                                    </div>
+                                    <span>Decidir</span>
+                                </td>
+                                <td class="py-4 px-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Forrest decide correr. No elige pelear ni pedir ayuda; confía en la indicación de Jenny y actúa de inmediato.
+                                </td>
+                            </tr>
+
+                            <!-- 7. Analizar -->
+                            <tr class="hover:bg-amber-50/40 dark:hover:bg-slate-700/30 transition-colors">
+                                <td class="py-4 px-4 font-bold text-slate-900 dark:text-white flex items-center space-x-2.5">
+                                    <div class="w-8 h-8 rounded-lg bg-cyan-100 dark:bg-cyan-950 text-cyan-600 dark:text-cyan-400 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-magnifying-glass-chart text-xs"></i>
+                                    </div>
+                                    <span>Analizar</span>
+                                </td>
+                                <td class="py-4 px-4 text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Mientras corre, su cuerpo comienza a responder de una manera inesperada: descubre que puede moverse con gran velocidad, incluso después de romper los aparatos que limitaban sus piernas.
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Reconstrucción del Proceso Mental & Conclusión -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                
+                <!-- Reconstrucción del Proceso -->
+                <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm space-y-4">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                        <i class="fa-solid fa-diagram-project text-amber-500"></i>
+                        Reconstrucción del Proceso
+                    </h3>
+                    
+                    <div class="space-y-3 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                        <p class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800">
+                            Forrest pasa de una situación de vulnerabilidad a una decisión de autoprotección. Primero observa que los niños lo persiguen y escucha a Jenny decirle que corra. Después interpreta que está en peligro, porque los niños no se acercan con buenas intenciones. A partir de eso, relaciona el momento con su desventaja física: normalmente sería difícil para él defenderse o enfrentar a varias personas.
+                        </p>
+                        <p class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800">
+                            Luego infiere que escapar es más seguro que quedarse. Aunque no vemos que Forrest explique sus pensamientos con palabras, sus acciones permiten concluir que entiende la urgencia de la situación. Evalúa rápidamente que correr es la mejor alternativa y toma la decisión de hacerlo.
+                        </p>
+                        <p class="p-3.5 rounded-2xl bg-amber-50/60 dark:bg-amber-950/30 border border-amber-200/50 dark:border-amber-800/50 text-slate-800 dark:text-amber-200 font-medium">
+                            <i class="fa-solid fa-bolt text-amber-500 mr-1.5"></i>
+                            Lo más importante es que Forrest no solo corre porque Jenny se lo ordena: confía en ella, reconoce el riesgo y elige la opción que le permite salir del peligro. Durante esa decisión descubre una habilidad que no sabía que tenía: su gran velocidad.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Conclusión del Análisis -->
+                <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-700/80 shadow-sm space-y-4 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
+                            <i class="fa-solid fa-flag-checkered text-emerald-500"></i>
+                            Conclusión
+                        </h3>
+
+                        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                            La decisión de Forrest fue adecuada porque priorizó su seguridad. Su pensamiento fue rápido y práctico: observó el peligro, interpretó las intenciones de los niños, consideró las consecuencias de quedarse y decidió escapar. Esta escena demuestra que una decisión puede surgir en pocos segundos, especialmente cuando una persona enfrenta una amenaza inmediata. La escena también marca un cambio importante en Forrest, porque al correr descubre que sus limitaciones físicas no definen todo lo que puede lograr.
+                        </p>
+                    </div>
+
+                    <!-- Highlight de Impacto -->
+                    <div class="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200 text-xs font-semibold flex items-center space-x-3">
+                        <i class="fa-solid fa-circle-check text-emerald-500 text-xl shrink-0"></i>
+                        <span>Priorización de seguridad + Superación de barreras físicas en segundos.</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
         <!-- Referencias Bibliográficas APA -->
-        <section class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-4">
+        <section id="referencias" class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-700/80 space-y-4 scroll-mt-24">
             <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3">
                 <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                     <i class="fa-solid fa-graduation-cap text-blue-500"></i>
@@ -645,14 +948,20 @@
                     </button>
                 </li>
                 <li class="flex items-start justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
-                    <span class="mr-2" id="apa-4">Schroeder, A. (2008). <em>The Snowball: Warren Buffett and the Business of Life</em>. Bantam Books.</span>
+                    <span class="mr-2" id="apa-4">Paramount Pictures. (1994). <em>Forrest Gump: He sure is fast! (HD CLIP)</em> [Video]. YouTube. https://www.youtube.com/watch?v=Xl3gCFyx8F4</span>
                     <button onclick="copyCitation('apa-4')" class="no-print shrink-0 text-xs px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-blue-900/50 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" title="Copiar cita">
                         <i class="fa-regular fa-copy mr-1"></i> Copiar
                     </button>
                 </li>
                 <li class="flex items-start justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
-                    <span class="mr-2" id="apa-5">Williams, S. (2009). <em>On the Line</em>. Grand Central Publishing.</span>
+                    <span class="mr-2" id="apa-5">Schroeder, A. (2008). <em>The Snowball: Warren Buffett and the Business of Life</em>. Bantam Books.</span>
                     <button onclick="copyCitation('apa-5')" class="no-print shrink-0 text-xs px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-blue-900/50 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" title="Copiar cita">
+                        <i class="fa-regular fa-copy mr-1"></i> Copiar
+                    </button>
+                </li>
+                <li class="flex items-start justify-between p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
+                    <span class="mr-2" id="apa-6">Williams, S. (2009). <em>On the Line</em>. Grand Central Publishing.</span>
+                    <button onclick="copyCitation('apa-6')" class="no-print shrink-0 text-xs px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-blue-900/50 hover:text-blue-600 dark:hover:text-blue-300 transition-colors" title="Copiar cita">
                         <i class="fa-regular fa-copy mr-1"></i> Copiar
                     </button>
                 </li>
@@ -800,7 +1109,7 @@
                 .map(el => el.innerText)
                 .join('\n\n');
             copyToClipboard(citations);
-            showToast('Todas las Citas Copiadas', 'Las 5 fuentes en formato APA copiadas.');
+            showToast('Todas las Citas Copiadas', 'Las fuentes en formato APA fueron copiadas.');
         }
 
         function copyToClipboard(text) {
